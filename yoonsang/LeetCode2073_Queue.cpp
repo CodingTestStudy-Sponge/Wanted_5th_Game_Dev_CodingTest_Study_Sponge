@@ -2,6 +2,7 @@
 
 using namespace std;
 /*
+https://leetcode.com/problems/time-needed-to-buy-tickets/description/?envType=problem-list-v2&envId=queue
 LeetCode 2073. Time Needed to Buy Tickets
 Input: tickets [2,3,2] k = 2 / Output: 6
 Input: tickets = [5,1,1,1], k = 0 / Output: 8

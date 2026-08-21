@@ -2,7 +2,7 @@
 
 using namespace std;
 /*
-* https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/description/?envType=problem-list-v2&envId=queue
+https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/description/?envType=problem-list-v2&envId=queue
 LeetCode 1700. Number of Students Unable to Eat Lunch
 Input: students = [1,1,0,0], sandwiches = [0,1,0,1] / Output: 0
 Input: students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1] / Output: 3
