@@ -1,60 +1,36 @@
-#include <stack>
-#include <string>
-
-using namespace std;
-
 class Solution {
 public:
     int longestValidParentheses(string s) {
         int answer = 0;
-        int save1 = 0;
-        int save2 = 0;
+
 
         //스택 생성
-        stack<char> stack = {};
+        stack<int> stack = {};
+        stack.push(-1);
 
-        for (int ix = 0; ix < s.size(); ++ix)
+        for(int ix = 0; ix < s.size(); ++ix)
         {
-            if (s[ix] == '(')
+            //'(' 일 경우 해당 인덱스 스택에 넣기
+            if(s[ix] == '(')
             {
-                stack.push('(');
-
-                if (s[ix + 1] != '\0' && s[ix + 1] == '(')
-                {
-                    save1 = answer;
-                    answer = 0;
-                }
+                stack.push(ix);
             }
-
-            else if (s[ix] == ')')
+            else
             {
-                if (stack.empty())
-                {
-                    continue;
-                }
-
-                answer += 2;
-                char val = stack.top();
                 stack.pop();
-
-                if (s[ix + 1] != '\0' && s[ix + 1] == ')')
-                {
-                    save2 += answer;
-                    answer = 0;
-                }
+                
+                 if(stack.empty())
+                    {
+                        stack.push(ix);
+                    }
+                    
+                    else
+                    {
+                        answer = max(answer, ix - stack.top());
+                    }
             }
         }
 
-        if (!stack.empty())
-        {
-            return answer + save2;
-        }
-
-        if (stack.empty())
-        {
-            return answer + save2 + save1;
-        }
-
-        return 0;
+        return answer;
     }
 };
