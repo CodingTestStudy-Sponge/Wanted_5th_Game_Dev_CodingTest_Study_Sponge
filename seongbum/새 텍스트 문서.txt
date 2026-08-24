@@ -2,3 +2,5 @@ LeetCode
 682. BaseBallGame https://leetcode.com/problems/baseball-game/description/?envType=problem-list-v2&envId=stack
 94. Binary Tree Inorder Traversal https://leetcode.com/problems/binary-tree-inorder-traversal/description/?envType=problem-list-v2&envId=depth-first-search
 933. Number of Recent Calls https://leetcode.com/problems/number-of-recent-calls/description/
+844. Backspace String Compare (민지님 문제) https://leetcode.com/problems/backspace-string-compare/description/
+268. Missing Number https://leetcode.com/problems/missing-number/description/
