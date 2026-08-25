@@ -1,0 +1,50 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int sumOfLeftLeaves(TreeNode* root) {
+        int sum = 0;
+        TreeNode* current = root;
+
+        if(!root)
+        {
+            root = new TreeNode(current->val);
+        }
+
+        while(true)
+        {
+            if(!current->left)
+            {
+                current->left = new TreeNode(current->val);
+                sum+=current->val;
+                break;
+            }
+            else
+            {
+                current = current->left;
+            }
+
+            if(!current->right)
+            {
+                current->right = new TreeNode(current->val);
+                break;
+            }
+            else
+            {
+                current = current->right;
+            }
+        }
+        return sum;
+    }
+};
+
+//트리 좀 더 공부해서 풀어야 함.
