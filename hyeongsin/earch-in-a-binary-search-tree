@@ -1,0 +1,40 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        //root가 null이 될 때까지
+        while(root)
+        {
+            //현재 값이 찾는 값보다 작을 때 
+            if(root->val < val)
+            {   
+                //오른쪽으로 순회
+                root = root->right;
+            }
+
+            //현재 값이 찾는 값보다 클 때
+            else if(root->val > val)
+            {
+                //왼쪽으로 순회
+                root = root->left;
+            }
+            else
+            {
+                //값을 찾았으면 현재 노드의 서브트리를 반환.
+                return root;
+            }
+        }
+        //실패 시 null 반환.
+        return nullptr;
+    }
+};
