@@ -39,58 +39,124 @@ s유효한 입력 값임이 보장됩니다 .
 
 */
 
+//class Solution
+//{
+//public:
+//    string decodeString(string s)
+//    {
+//        stack<char>stack;
+//        string str = "";
+//
+//        for (char c : s)
+//        {
+//            stack.push(c);
+//        }
+//
+//        while (!stack.empty())
+//        {
+//            if (stack.top() == ']')
+//            {
+//                stack.pop();
+//            }
+//
+//            else if (isalpha(stack.top()))
+//            {
+//                str += stack.top();
+//
+//                stack.pop();
+//            }
+//
+//            else if (stack.top() == '[')
+//            {
+//                stack.pop();
+//
+//                if (isdigit(stack.top()))
+//                {
+//                    // 숫자 만큼 반복
+//                    int replay = stack.top() - '0';
+//
+//                    string previousStr = str;
+//
+//                    stack.pop();
+//
+//                    for (int ix = 0; ix < replay - 1; ++ix)
+//                    {
+//                        str += previousStr;
+//                    }
+//                }
+//            }
+//            else
+//            {
+//                stack.pop();
+//            }
+//        }
+//        reverse(str.begin(), str.end());
+//        return str;
+//    }
+//};
+
+
 class Solution
 {
 public:
     string decodeString(string s)
     {
-        stack<char>stack;
-        string str = "";
+        stack<int> numberStack;
+        stack<string> stringStack;
+
+        string current = "";
+        int number = 0;
 
         for (char c : s)
         {
-            stack.push(c);
-        }
-
-        while (!stack.empty())
-        {
-            if (stack.top() == ']')
+            // 숫자
+            if (isdigit(c))
             {
-                stack.pop();
+                // 두자리 숫자를 고려해 *10 처리
+                number = number * 10 + (c - '0');
             }
 
-            else if (isalpha(stack.top()))
+            // [
+            else if (c == '[')
             {
-                str += stack.top();
+                // 반복 횟수 저장
+                numberStack.push(number);
 
-                stack.pop();
+                // 문자열 저장
+                stringStack.push(current);
+
+                // 새로운 처리를 위해 초기화
+                number = 0;
+                current = "";
             }
 
-            else if (stack.top() == '[')
+            // ]
+            else if (c == ']')
             {
-                stack.pop();
+                // 반복 횟수 가져오기
+                int repeat = numberStack.top();
+                numberStack.pop();
 
-                if (isdigit(stack.top()))
+                // 만들어졌던 문자열 가져오기
+                string previous = stringStack.top();
+                stringStack.pop();
+
+                // 반복 횟수만큼 추가
+                for (int ix = 0; ix < repeat; ++ix)
                 {
-                    // 숫자 만큼 반복
-                    int replay = stack.top() - '0';
-
-                    string previousStr = str;
-
-                    stack.pop();
-
-                    for (int ix = 0; ix < replay - 1; ++ix)
-                    {
-                        str += previousStr;
-                    }
+                    previous += current;
                 }
+                // 현재 문자열로 지정
+                current = previous;
             }
+
+            // 알파벳
             else
             {
-                stack.pop();
+                current += c;
             }
         }
-        reverse(str.begin(), str.end());
-        return str;
+
+        return current;
     }
 };
