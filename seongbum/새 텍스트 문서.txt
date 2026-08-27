@@ -4,3 +4,5 @@ LeetCode
 933. Number of Recent Calls https://leetcode.com/problems/number-of-recent-calls/description/
 844. Backspace String Compare (민지님 문제) https://leetcode.com/problems/backspace-string-compare/description/
 268. Missing Number https://leetcode.com/problems/missing-number/description/
+102. Binary Tree Level Order Traversal https://leetcode.com/problems/binary-tree-level-order-traversal/description/
+993. Cousins in Binary Tree https://leetcode.com/problems/cousins-in-binary-tree/description/
