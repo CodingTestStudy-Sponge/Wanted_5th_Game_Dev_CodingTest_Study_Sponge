@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> map;
+
+        //쌍이 존재하는지 검사하기.
+        for(int ix = 0; ix < nums.size(); ++ix)
+        {
+            int complement = target - nums[ix];
+
+            //쌍이 존재한다면 바로 반환
+            if(map.count(complement))
+            {
+                return {map[complement], ix};
+            }
+
+            //쌍이 없다면 map에 저장.
+            map[nums[ix]] = ix;
+        }
+
+        return {};
+    }
+};
