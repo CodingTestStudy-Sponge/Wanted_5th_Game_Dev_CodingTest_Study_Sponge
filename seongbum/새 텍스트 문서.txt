@@ -6,3 +6,4 @@ LeetCode
 268. Missing Number https://leetcode.com/problems/missing-number/description/
 102. Binary Tree Level Order Traversal https://leetcode.com/problems/binary-tree-level-order-traversal/description/
 993. Cousins in Binary Tree https://leetcode.com/problems/cousins-in-binary-tree/description/
+2094. Finding 3-Digit Even Numbers https://leetcode.com/problems/finding-3-digit-even-numbers/description/
